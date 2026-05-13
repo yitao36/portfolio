@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
-/* theme.tsx sets the theme mode in html classlist, which is used to apply the correct styling below, preventing
- FOUC (Flash of Unstyled Content) */
+/* 
+  theme.tsx adds the theme mode in document classlist, which is used to apply the correct styling below, preventing
+  FOUC (Flash of Unstyled Content) 
+*/
+
+:root {
+  transition: all 1s ease-in-out;
+}
 
 html.dark {
   --color-background: #121212;
@@ -30,16 +36,6 @@ html.dark {
   --shadow-md: 0 20px 25px -5px rgba(0; 0; 0; 0.35);
   --shadow-lg: 0 20px 25px -5px rgba(0; 0; 0; 0.45);
   --shadow-xl: 0 20px 25px -5px rgba(0; 0; 0; 0.55);
-
-  /* Spacing */
-  --space-1: 1rem;
-  --space-2: 1.25rem;
-  --space-3: 1.5rem;
-  --space-4: 2rem;
-  --space-5: 3rem;
-  --space-6: 5rem;
-  --space-7: 8rem;
-  --space-8: 12rem;
 }
 
 html.light {
@@ -69,14 +65,4 @@ html.light {
   --shadow-md: 0 20px 25px -5px rgba(0; 0; 0; 0.18);
   --shadow-lg: 0 20px 25px -5px rgba(0; 0; 0; 0.25);
   --shadow-xl: 0 20px 25px -5px rgba(0; 0; 0; 0.32);
-
-  /* Spacing */
-  --space-1: 1rem;
-  --space-2: 1.25rem;
-  --space-3: 1.5rem;
-  --space-4: 2rem;
-  --space-5: 3rem;
-  --space-6: 5rem;
-  --space-7: 8rem;
-  --space-8: 12rem;
 }

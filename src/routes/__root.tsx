@@ -1,9 +1,9 @@
 // src/routes/__root.tsx
 /// <reference types="vite/client" />
-import type { ReactNode } from "react";
-import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import { ThemeProvider } from "../theme"
+import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router"
+import type { ReactNode } from "react"
 import "../styles.css"
+import { ThemeProvider } from "../theme"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -34,9 +34,10 @@ function RootComponent() {
   );
 }
 
+
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html suppressHydrationWarning>
+    <html className="group" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

@@ -1,0 +1,1 @@
+export const IconStyle = `transition-all hover:bg-(--color-background-hover) p-1.5 rounded-full cursor-pointer flex justify-center w-[32px] h-[32px]`
