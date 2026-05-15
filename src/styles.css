@@ -10,24 +10,26 @@
 }
 
 html.dark {
-  --color-background: #121212;
+  --color-background: #0f0f15;
   --color-text: #ffffff;
+  --color-text-secondary: #c0c0c0;
   --color-primary: #007bff;
+  --color-primary-focus: #0037ff;
   --color-secondary: #6c757d;
   --color-accent: #dc3545;
   --color-error: #dc3545;
 
   /* Surface/background variants */
-  --color-background-page: #1a1a1a;
+  --color-background-page: #1d1f22;
   --color-background-secondary: #2d2d2d;
   --color-background-tertiary: #3d3d3d;
   --color-background-hover: #2d2d2d;
   --color-background-active: #3d3d3d;
 
   /* Border colors */
-  --color-border-default: #424242;
+  --color-border: #424242;
   --color-border-light: #525252;
-  --color-border-dark: #323232;
+  --color-border-dark: #4c4c61;
   --color-border-focus: #007bff;
 
   /* Shadow effects (inverted for dark mode) */
@@ -39,24 +41,26 @@ html.dark {
 }
 
 html.light {
-  --color-background: #ffffff;
+  --color-background: #eeeeee;
   --color-text: #000000;
+  --color-text-secondary: #303030;
   --color-primary: #007bff;
+  --color-primary-focus: #0037ff;
   --color-secondary: #6c757d;
   --color-accent: #dc3545;
   --color-error: #dc3545;
 
   /* Surface/background variants */
-  --color-background-page: #ffffff;
-  --color-background-secondary: #f8f9fa;
-  --color-background-tertiary: #e9ecef;
-  --color-background-hover: #f1f3f4;
+  --color-background-page: #fcfcfc;
+  --color-background-secondary: #a8a9da;
+  --color-background-tertiary: #b9bcbf;
+  --color-background-hover: #a1a3a4;
   --color-background-active: #e7e9ec;
 
   /* Border colors */
-  --color-border-default: #dee2e6;
+  --color-border: #dee2e6;
   --color-border-light: #edf0f5;
-  --color-border-dark: #cdd3da;
+  --color-border-dark: #a0aab6;
   --color-border-focus: #007bff;
 
   /* Shadow effects (standard for light mode) */

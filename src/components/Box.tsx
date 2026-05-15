@@ -1,9 +1,18 @@
-import { ReactNode } from "react"
+import { cn } from "@sglara/cn"
+import { ComponentPropsWithoutRef, ReactNode } from "react"
 
-export const Box = ({ children }: Readonly<{ children: ReactNode }>) => {
+/**
+ * An outlined box
+ */
+export const Box = (props: ComponentPropsWithoutRef<"div">) => {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full shadow-(--shadow-xl) gap-(--space-4) text-(--color-text) bg-(--color-background)">
-      {children}
+    <div className={cn("flex flex-col w-full justify-center items-center py-6", props.className)}>
+      <div
+        className="flex flex-col items-center justify-center w-full h-full bg-(--color-background-page)
+        rounded-lg outline outline-(--color-border)"
+      >
+        {props.children}
+      </div>
     </div>
-  );
-};
+  )
+}
