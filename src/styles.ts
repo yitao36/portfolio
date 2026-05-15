@@ -1,6 +1,7 @@
 export const IconStyle = `transition-all hover:bg-(--color-background-hover) p-1.5 rounded-full cursor-pointer flex justify-center items-center w-[32px] h-[32px]`
+export const ClickableStyle  = `hover:transition-duration-150 hover:bg-(--color-background-hover) cursor-pointer rounded-lg shadow-(--shadow-md)`
+export const TransitionStyle = `transition-all duration-300 ease-in-out`
 
-const genericTextStyle = ")"
 export const textStyles = {
   "heading1": "text-2xl font-bold text-(--color-text)",
   "heading2": "text-xl font-medium text-(--color-text)",

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { Box } from "../../components/Box"
-import { textStyles } from "../../styles"
+import { ClickableStyle, textStyles } from "../../styles"
 import { cn } from "@sglara/cn"
 import { useState, useTransition } from "react"
 
@@ -43,7 +43,7 @@ function PostList() {
 function PostCard() {
   return (
     <Box>
-      <div className="flex flex-col w-full p-4 gap-2">
+      <div className={cn(ClickableStyle, "flex flex-col w-full p-4 gap-2")}>
         <p className={textStyles.heading2}>My first blog</p>
         <p className={cn(textStyles.paragraph, "w-full line-clamp-2 text-ellipsis")}>
           CoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCo

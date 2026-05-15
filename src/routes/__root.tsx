@@ -6,7 +6,7 @@ import "../styles.css"
 import { ThemeContext, ThemeProvider } from "../theme"
 import { cn } from "@sglara/cn"
 import { Moon, Sun } from "lucide-react"
-import { IconStyle } from "../styles"
+import { IconStyle, TransitionStyle } from "../styles"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -43,7 +43,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
         <script src="https://kit.fontawesome.com/b3895d887d.js" crossOrigin="anonymous"></script>
       </head>
-      <body className="bg-(--color-background)">
+      <body className={cn("bg-(--color-background)",TransitionStyle)}>
         {children}
         <Scripts />
       </body>
@@ -63,8 +63,8 @@ function NavHeader() {
   if (theme === undefined) console.error("ThemeContext must be used within ThemeProvider.")
   return (
     <nav
-      className="sticky top-0 flex items-center justify-between w-full text-(--color-text) bg-(--color-background-page)
-      py-3 px-[20%] outline outline-(--color-border)"
+      className={cn(`sticky top-0 flex items-center justify-between w-full text-(--color-text) bg-(--color-background-page)
+      py-3 px-[20%] outline outline-(--color-border)`, TransitionStyle)}
     >
       <h1 className="text-3xl font-bold">Yitao</h1>
       <div className="flex flex-row gap-16">
@@ -85,8 +85,8 @@ function NavHeader() {
 function NavFooter() {
   return (
     <div
-      className="flex min-w-sm items-center justify-between w-full text-(--color-text) bg-(--color-background-page)
-    px-[20%] py-4"
+      className={cn(`flex min-w-sm items-center justify-between w-full text-(--color-text) bg-(--color-background-page)
+    px-[20%] py-4`, TransitionStyle)}
     >
       <div className="flex flex-row justify-center w-full gap-16 text-center">
         <a className={IconStyle} href="https://github.com/yitao36">
