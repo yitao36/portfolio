@@ -1,57 +1,38 @@
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, useRouter } from "@tanstack/react-router"
 import { Box } from "../../components/Box"
 import { ClickableStyle, textStyles } from "../../styles"
 import { cn } from "@sglara/cn"
 import { useState, useTransition } from "react"
+import { Post, posts } from "./-posts/posts"
 
 export const Route = createFileRoute("/blog/")({ component: RouteComponent })
 
+/** Renders a search bar and displays filtered posts */
 function RouteComponent() {
-  return (
-    <>
-      <div className="h-8" /> {/** gap */}
-      <div className="grid grid-cols-[33%_67%] md:grid-cols-[33%_34%_33%] min-w-sm">
-        <div>a</div>
-        <PostList />
-        <div>a</div>
-      </div>
-    </>
-  )
-}
-
-type Post = {
-  title: string
-  description: string
-  date: Date
-  tags: string[]
-}
-
-function PostList() {
   const [search, setSearch] = useState("")
 
-  const filteredPosts = [""].filter(d => d.toLowerCase().includes(search.toLowerCase()))
-
+  const filteredPosts = posts.filter((d) => d.title.toLowerCase().includes(search.toLowerCase())).reverse()
 
   return (
     <div className="flex flex-1 flex-col w-full">
-      <input className={textStyles.input} onChange={e => (setSearch(e.target.value))} placeholder="Search"></input>
-      <PostCard />
+      <input className={textStyles.input} onChange={(e) => setSearch(e.target.value)} placeholder="Search"></input>
+      {filteredPosts.map((p) => (
+        <PostCard key={p.id} post={p} id={p.id} />
+      ))}
     </div>
   )
 }
 
-function PostCard() {
+function PostCard({ id, post }: { id: number; post: Post }) {
+  const navigate = useRouter()
   return (
-    <Box>
+    <Box onClick={() => navigate.navigate({ to: `/blog/${id}` })}>
       <div className={cn(ClickableStyle, "flex flex-col w-full p-4 gap-2")}>
-        <p className={textStyles.heading2}>My first blog</p>
-        <p className={cn(textStyles.paragraph, "w-full line-clamp-2 text-ellipsis")}>
-          CoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCo
-          CoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoololCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCoolCool!
-        </p>
+        <p className={textStyles.heading2}>{post.title}</p>
+        <p className={cn(textStyles.paragraph, "w-full line-clamp-2 text-ellipsis")}>{post.description}</p>
         <div className="flex flex-row gap-4">
-          <p className={textStyles.paragraph}>{new Date().toDateString().split(" ").slice(1).join(" ")}</p>
-          <p className={textStyles.paragraph}>tag</p>
+          <p className={textStyles.paragraph}>{post.date.toDateString().split(" ").slice(1).join(" ")}</p>
+          <p className={textStyles.additionalInfo + " self-end"}>{post.tags.join(', ')}</p>
         </div>
       </div>
     </Box>

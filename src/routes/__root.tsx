@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "TanStack Start Starter" },
     ],
-    links: [{ href: "src/styles.css", rel: "stylesheet" }],
+    links: [{ href: "/src/styles.css", rel: "stylesheet" }],
   }),
   component: RootComponent,
 })
@@ -53,8 +53,6 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 
 const navHeaderLinks = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/resume", label: "Resume" },
   { to: "/blog", label: "Blog" },
 ]
 
@@ -69,7 +67,7 @@ function NavHeader() {
       <h1 className="text-3xl font-bold">Yitao</h1>
       <div className="flex flex-row gap-16">
         {navHeaderLinks.map(({ to, label }) => (
-          <Link key={to} to={to} className="hover:underline self-center text-(--color-text)">
+          <Link key={to} to={to} className={cn(TransitionStyle, `hover:underline self-center text-(--color-text)`)}>
             {label}
           </Link>
         ))}

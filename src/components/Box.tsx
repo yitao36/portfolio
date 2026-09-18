@@ -7,7 +7,7 @@ import { ClickableStyle, TransitionStyle } from "../styles"
  */
 export const Box = (props: ComponentPropsWithoutRef<"div">) => {
   return (
-    <div className={cn("flex flex-col w-full justify-center items-center py-6", props.className)}>
+    <div className={cn("flex flex-col w-full justify-center items-center py-6", props.className)} {...props}>
       <div
         className={cn(TransitionStyle,ClickableStyle,`flex flex-col items-center justify-center w-full h-full bg-(--color-background-page)
         rounded-lg outline outline-(--color-border)`)}

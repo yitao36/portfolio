@@ -1,8 +1,9 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router"
 import { Box } from "../components/Box"
-import { textStyles } from "../styles"
+import { textStyles, TransitionStyle } from "../styles"
 import profileImg from "../assets/Yitao's Dive - frame at 0m30s.jpg"
 import { cn } from "@sglara/cn"
+import resume from "../assets/Resume.pdf"
 
 export const Route = createFileRoute("/")({ component: RouteComponent })
 
@@ -10,21 +11,23 @@ export const Route = createFileRoute("/")({ component: RouteComponent })
 function RouteComponent() {
   const router = useRouter()
   return (
-    <div className="grid grid-cols-[auto_24rem_auto] md:grid-cols-[auto_42rem_auto] place-items-center">
-      <Box className="w-full col-start-2">
-        <TitleCard />
-      </Box>
+    <>
+      <div className="h-8" /> {/** gap */}
+      <div className="grid grid-cols-[auto_24rem_auto] md:grid-cols-[auto_42rem_auto] place-items-center mb-8 gap-8">
+        <Box className="w-full col-start-2">
+          <TitleCard />
+        </Box>
 
-      <Box className="w-full col-start-2">
-        <Experience />
-      </Box>
+        <Box className="w-full col-start-2">
+          <Experience />
+        </Box>
 
-      <div className="flex justify-center col-start-2">
-        <button className={textStyles.button} onClick={() => router.navigate({ to: "/about" })}>
-          About
-        </button>
+        <a className="col-start-2" href={resume} download>
+          <button className={textStyles.button}>Download Resume</button>
+        </a>
       </div>
-    </div>
+
+    </>
   )
 }
 
@@ -39,10 +42,11 @@ function TitleCard() {
         <img
           width={200}
           height={200}
-          className="rounded-[50%] border-2 border-(--color-background-secondary)"
+          className={"rounded-[50%] border-2 border-(--color-background-secondary) " + TransitionStyle}
           src={profileImg}
         />
-        <div className="outline outline-(--color-border) self-stretch my-[2.5%]"></div> {/** separator  */}
+        <div className={"outline outline-(--color-border) self-stretch my-[2.5%] " + TransitionStyle}></div> {/** separator  */}
+
         <div className="flex flex-col self-center w-fit h-full">
           <h1 className={textStyles.heading2}>Ding Yitao</h1>
           <p className={textStyles.additionalInfo}>Computer Science Y2 student at National University of Singapore</p>
@@ -73,8 +77,8 @@ const experiences = [
 \n-	Familiarized myself with Next.JS framework, RESTful APIs, Redux, TanStack Query.
 \n-	Used libraries such as Zod for type validation
 \n-	Integrate with Supabase and Prisma ORM for cloud storage.
-`
-  }
+`,
+  },
 ]
 
 function Experience() {
@@ -84,12 +88,14 @@ function Experience() {
       <p className={cn(textStyles.additionalInfo, "w-full px-[5%]")}>Here are some of my experiences:</p>
       <div className="flex flex-col items-center justify-center w-full h-fit px-[5%]">
         <div className="h-4" /> {/** gap */}
-        <ul className={cn(textStyles.list,"flex flex-col gap-4")}>
+        <ul className={cn(textStyles.list, "flex flex-col gap-4")}>
           {experiences.map((exp) => (
             <div>
               <li className={textStyles.heading2}>{exp.title}</li>
-              {exp.description.split('\n').map((line) => (
-                <p key={line} className="py-0.5">{line}</p>
+              {exp.description.split("\n").map((line) => (
+                <p key={line} className="py-0.5">
+                  {line}
+                </p>
               ))}
             </div>
           ))}

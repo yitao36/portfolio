@@ -2,7 +2,7 @@
 
 /* 
   theme.tsx adds the theme mode in document classlist, which is used to apply the correct styling below, preventing
-  FOUC (Flash of Unstyled Content) 
+  FOUC (Flash of Unstyled Content ) 
 */
 
 :root {

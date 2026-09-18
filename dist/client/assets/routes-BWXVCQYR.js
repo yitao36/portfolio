@@ -1,1 +1,0 @@
-import{t as e}from"./index-B8xWk1Jx.js";var t=e();function n(){return(0,t.jsx)(`div`,{className:`bg-(--color-background)`,children:`Hello!`})}export{n as component};
